@@ -4,7 +4,12 @@ import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
-
+from django.views import View
+class Home(View):
+    
+    def get(self, request):
+        
+        return render(request, 'templates/index.html')
 def pdf_gen(request):
     b=io.BytesIO()
     c=canvas.Canvas(b, pagesize=letter, bottomup=0)
